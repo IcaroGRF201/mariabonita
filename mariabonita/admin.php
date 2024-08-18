@@ -70,7 +70,7 @@ session_start();
 
                 <div class="text-3">Bem vindo, <?php include "valida_login.php" ?></div>
 
-                <a href="../Cardapio/index.html">Ver Cardápio</a>
+                <a href="cardapio.php">Ver Cardápio</a>
             </div>
         </div>
         <div class="arrow">
