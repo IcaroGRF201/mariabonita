@@ -61,7 +61,7 @@ session_start();
 
                 <div class="text-3">Bem vindo, <?php include "valida_login.php" ?></div>
 
-                <a href="cardapio.php">Ver Cardápio</a>
+                <a href="../Cardapio/index.html">Ver Cardápio</a>
             </div>
         </div>
         <div class="arrow">
@@ -131,7 +131,7 @@ session_start();
                 <div class="column left">
                     <div class="text">Horários de Atendimento.</div>
                     <p>Nós da Paladare atendemos durante a noite, somos uma ótima opção para quem quer um jantar surpreendente ou até mesmo um delicioso lanche durante a noite.<br>Você pode optar pela nossa loja física ou pelo delivery, garantimos uma entrega rápida entre 40 à 50 minutos.<br>Nossos horários durante a semana são das 18:30 às 22:30. Já nos finais de semana são das 18:30 às 23:30</p>
-                    <a href="cardapio.php">Ver Cardápio</a>
+                    <a href="../Cardapio/index.html">Ver Cardápio</a>
                 </div>
                 <div class="column right">
                     <img src="../images/HorarioDeAtendimento3.png" alt="">
@@ -143,7 +143,7 @@ session_start();
 
     <!-- footer section start -->
     <footer>
-        <span>Criado por <a href="https://github.com/HenriqueEstanislau">Henrique Estanislau</a> | <span class="far fa-copyright"></span> 2021 Todos os direitos reservados.</span>
+        <span>Criado por <a href="https://github.com/torresdavii/mariabonita">Davi Ribeiro, Icaro Gabriel, Patrick Xavier, Everson Lima</a> | <span class="far fa-copyright"></span> 2024 Todos os direitos reservados.</span>
     </footer>
 
     <script src="js/home.js"></script>

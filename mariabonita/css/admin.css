@@ -36,11 +36,12 @@ section{
     padding: 0 40px;
     margin: auto;
 }
-.about, .services, .skills, .teams, .contact, footer{
+.clientes, .pedidos, .number, .skills, .teams, .contact, footer{
     font-family: 'Poppins', sans-serif;
 }
-.about .about-content, 
-.services .serv-content,
+.clientes .clientes-content, 
+.pedidos .serv-content,
+.number .number-content,
 .skills .skills-content,
 .contact .contact-content{
     display: flex;
@@ -273,32 +274,32 @@ section .subtitle{
     }
 }
 
-/* about section styling */
+/* clientes section styling */
 
-.about .about-content .left{
+.clientes .clientes-content .left{
     width: 45%;
 }
-.about .about-content .left img{
+.clientes .clientes-content .left img{
     height: 400px;
     width: 400px;
     object-fit: cover;
     border-radius: 6px;
 }
-.about .about-content .right{
+.clientes .clientes-content .right{
     width: 55%;
 }
-.about .about-content .right .text{
+.clientes .clientes-content .right .text{
     font-size: 25px;
     font-weight: 600;
     margin-bottom: 10px;
 }
-.about .about-content .right .text span{
+.clientes .clientes-content .right .text span{
     color: #3e733b;
 }
-.about .about-content .right p{
+.clientes .clientes-content .right p{
     text-align: justify;
 }
-.about .about-content .right a{
+.clientes .clientes-content .right a{
     display: inline-block;
     background: #3e733b; /* ---------------------------------------------------*/
     color: #fff;
@@ -310,17 +311,17 @@ section .subtitle{
     border: 2px solid #3e733b;
     transition: all 0.3s ease;
 }
-.about .about-content .right a:hover{
+.clientes .clientes-content .right a:hover{
     color: #3e733b;
     background: none;
 }
 
-/* services section styling */
-.services, .teams{
+/* pedidos section styling */
+.pedidos, .teams{
     color:#fff;
     background: #111;
 }
-.services .serv-content .card{
+.pedidos .serv-content .card{
     width: calc(33% - 20px);
     background: #222;
     text-align: center;
@@ -329,24 +330,61 @@ section .subtitle{
     cursor: pointer;
     transition: all 0.3s ease;
 }
-.services .serv-content .card:hover{
+.pedidos .serv-content .card:hover{
     background: #3e733b;
 }
-.services .serv-content .card .box{
+.pedidos .serv-content .card .box{
     transition: all 0.3s ease;
 }
-.services .serv-content .card:hover .box{
+.pedidos .serv-content .card:hover .box{
     transform: scale(1.05);
 }
-.services .serv-content .card i{
+.pedidos .serv-content .card i{
     font-size: 50px;
     color: #3e733b;
     transition: color 0.3s ease;
 }
-.services .serv-content .card:hover i{
+.pedidos .serv-content .card:hover i{
     color: #fff;
 }
-.services .serv-content .card .text{
+.pedidos .serv-content .card .text{
+    font-size: 25px;
+    font-weight: 500;
+    margin: 10px 0 7px 0;
+}
+
+/* number section styling */
+.number, .teams{
+    color:#fff;
+    background: #111;
+}
+.number .number-content .card{
+    width: calc(33% - 20px);
+    background: #222;
+    text-align: center;
+    border-radius: 6px;
+    padding: 20px 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+.number .number-content .card:hover{
+    background: #3e733b;
+}
+.number .number-content .card .box{
+    transition: all 0.3s ease;
+}
+.number .number-content .card:hover .box{
+    transform: scale(1.05);
+}
+.number .number-content .card i{
+    font-size: 50px;
+    color: #3e733b;
+    transition: color 0.3s ease;
+}
+.number .number-content .card:hover i{
+    color: #fff;
+}
+.number .number-content .card .text{
     font-size: 25px;
     font-weight: 500;
     margin: 10px 0 7px 0;
@@ -575,7 +613,7 @@ footer span a:hover{
 }
 
 @media (max-width: 1104px) {
-    .about .about-content .left img{
+    .clientes .clientes-content .left img{
         height: 350px;
         width: 350px;
     }
@@ -656,18 +694,22 @@ footer span a:hover{
     .max-width{
         max-width: 930px;
     }
-    .about .about-content .column{
+    .clientes .clientes-content .column{
         width: 100%;
     }
-    .about .about-content .left{
+    .clientes .clientes-content .left{
         display: flex;
         justify-content: center;
         margin: 0 auto 60px;
     }
-    .about .about-content .right{
+    .clientes .clientes-content .right{
         flex: 100%;
     }
-    .services .serv-content .card{
+    .pedidos .serv-content .card{
+        width: calc(50% - 10px);
+        margin-bottom: 20px;
+    }
+    .number .number-content .card{
         width: calc(50% - 10px);
         margin-bottom: 20px;
     }
@@ -699,7 +741,10 @@ footer span a:hover{
     .home .home-content a{
         font-size: 20px;
     }
-    .services .serv-content .card{
+    .pedidos .serv-content .card{
+        width: 100%;
+    }
+    .number .number-content .card{
         width: 100%;
     }
 }
@@ -712,7 +757,7 @@ footer span a:hover{
     .home .home-content .text-3{
         font-size: 27px;
     }
-    .about .about-content .right .text,
+    .clientes .clientes-content .right .text,
     .skills .skills-content .left .text{
         font-size: 19px;
     }
@@ -733,7 +778,7 @@ footer span a:hover{
     }
 }
 @media (max-width: 360px) {
-    .about .about-content .left img{
+    .clientes .clientes-content .left img{
         height: 300px;
         width: 300px;
     }
@@ -743,7 +788,7 @@ footer span a:hover{
     }
 }
 @media (max-width: 305px) {
-    .about .about-content .left img{
+    .clientes .clientes-content .left img{
         height: 250px;
         width: 250px;
     }

@@ -27,9 +27,9 @@ session_start();
     <div class="scroll-up-btn">
         <i class="fas fa-angle-up"></i>
     </div>
-    
+
     <nav class="navbar">
-        
+
         <div class="max-width">
             <div class="menu-btn">
                 <i class="fas fa-bars"></i>
@@ -40,13 +40,13 @@ session_start();
                 </a>
             </div>
             <ul class="menu">
-                <li><a href="index.php" class="menu-btn">Sair</a></li>
                 <li><a href="home.php" class="menu-btn">Home</a></li>
                 <li><a href="admin.php" class="menu-btn">Administração</a></li>
-                <li><a href="#about" class="menu-btn">Clientes</a></li>
-                <li><a href="#services services1" class="menu-btn">Pedidos</a></li>
-                <li><a href="cardapio.php" class="menu-btn">Cardapio</a></li>
-                <li><a href="#services services2" class="menu-btn">Contato</a></li>
+                <li><a href="#clientes" class="menu-btn">Clientes</a></li>
+                <li><a href="#pedidos" class="menu-btn">Pedidos</a></li>
+                <li><a href="#cardapio" class="menu-btn">Cardapio</a></li>
+                <li><a href="#number" class="menu-btn">Contato</a></li>
+                <li><a href="logout.php" class="menu-btn">Sair</a></li>
             </ul>
             <div class="menu-cart">
                 <a href="../Carrinho/index.html"><i class="fas fa-shopping-cart"></i><span id="cont-cart"></span></a>
@@ -59,49 +59,87 @@ session_start();
         <div class="max-width">
             <div class="home-content">
 
-            <img class="config" src="img/config.png">
+                <img class="config" src="img/config.png">
 
                 <div class="text-2">
                     Administração
-                    
+
                 </div>
 
                 <br><br>
 
                 <div class="text-3">Bem vindo, <?php include "valida_login.php" ?></div>
 
-                <a href="cardapio.php">Ver Cardápio</a>
+                <a href="../Cardapio/index.html">Ver Cardápio</a>
             </div>
         </div>
         <div class="arrow">
-            <a href="#about"><span class="material-symbols-sharp">south</span></a>
+            <a href="#clientes"><span class="material-symbols-sharp">south</span></a>
         </div>
     </section>
 
 
-    <!-- about section start -->
-    <section class="about" id="about">
+    <!-- clientes section start -->
+    <section class="clientes" id="clientes">
         <div class="max-width">
-            <h2 class="title">Sobre nós</h2>
-            <div class="about-content">
-                <div class="column left">
-                    <img src="../mariabonita/img/wallpaper.png" alt="">
-                </div>
-                <div class="column right">
-                    <div class="text">Olá nos somos a Paladare</div>
-                    <p>Aqui no Paladare nós oferecemos os melhores lanches artesanais da região, com excelente qualidade e te convidamos para experimentar.
-                        Nós queremos preparar os melhores lanches para os nosso clientes, trazendo alta qualidade e sabor, oferecendo o melhor da casa.
-                        Delicie-se e aproveite. Pegue uma bebida e acima de tudo, relaxe!
-                        Agradecemos por sua preferência.
-                    </p>
-                    <a href="#">História</a>
-                </div>
+            <h2 class="title">Clientes cadastrados</h2>
+            <div class="clientes-content">
+                <?php
+                $conectar = mysqli_connect("localhost", "root", "", "mariabonita");
+
+                $sql_pesquisa = "SELECT
+										idclientes,
+                                        nome,
+										usuario
+								 FROM   clientes";
+
+                $sql_resultado = mysqli_query($conectar, $sql_pesquisa);
+                ?>
+
+                <table width="100%" border=1>
+                    <tr height="50px">
+                        <td>
+                            ID DO CLIENTE
+                        </td>
+
+                        <td>
+                            NOME
+                        </td>
+
+                        <td>
+                            USUARIO
+                        </td>
+
+                    </tr>
+                    <?php
+                    while ($registro = mysqli_fetch_row($sql_resultado)) {
+                    ?>
+                        <tr height="50px">
+                            <td>
+                                
+                                    <?php echo $registro[0]; ?>
+                                </a>
+                            </td>
+                            <td>
+                                <?php echo $registro[1]; ?>
+                            </td>
+
+                            <td>
+                                <?php echo $registro[2]; ?>
+                            </td>
+
+                        </tr>
+                    <?php
+                    }
+                    ?>
+                </table>
             </div>
         </div>
+        </div>
     </section>
 
-    <!-- services section start -->
-    <section class="services services1" id="services services1">
+    <!-- pedidos section start -->
+    <section class="pedidos" id="pedidos">
         <div class="max-width">
             <h2 class="title">Nossos Serviços</h2>
             <h4 class="subtitle">Pedir um delivery fica fácil com apenas 3 passos</h4>
@@ -133,14 +171,14 @@ session_start();
     </section>
 
     <!-- skills section start -->
-    <section class="skills" id="time">
+    <section class="skills" id="cardapio">
         <div class="max-width">
             <h2 class="title">Horários</h2>
             <div class="skills-content">
                 <div class="column left">
                     <div class="text">Horários de Atendimento.</div>
                     <p>Nós da Paladare atendemos durante a noite, somos uma ótima opção para quem quer um jantar surpreendente ou até mesmo um delicioso lanche durante a noite.<br>Você pode optar pela nossa loja física ou pelo delivery, garantimos uma entrega rápida entre 40 à 50 minutos.<br>Nossos horários durante a semana são das 18:30 às 22:30. Já nos finais de semana são das 18:30 às 23:30</p>
-                    <a href="cardapio.php">Ver Cardápio</a>
+                    <a href="../Cardapio/index.html">Ver Cardápio</a>
                 </div>
                 <div class="column right">
                     <img src="../images/HorarioDeAtendimento3.png" alt="">
@@ -149,11 +187,11 @@ session_start();
         </div>
     </section>
 
-    <section class="services services2" id="services services2">
+    <section class="number" id="number">
         <div class="max-width">
             <h2 class="title">Nossos Serviços</h2>
             <h4 class="subtitle">Pedir um delivery fica fácil com apenas 3 passos</h4>
-            <div class="serv-content">
+            <div class="number-content">
                 <div class="card">
                     <div class="box">
                         <i class="fab fa-whatsapp"></i>
@@ -183,7 +221,7 @@ session_start();
 
     <!-- footer section start -->
     <footer>
-        <span>Criado por <a href="https://github.com/HenriqueEstanislau">Henrique Estanislau</a> | <span class="far fa-copyright"></span> 2021 Todos os direitos reservados.</span>
+        <span>Criado por <a href="https://github.com/torresdavii/mariabonita">Davi Ribeiro, Icaro Gabriel, Patrick Xavier, Everson Lima</a> | <span class="far fa-copyright"></span> 2024 Todos os direitos reservados.</span>
     </footer>
 
     <script src="js/home.js"></script>

@@ -8,6 +8,8 @@
     <title>Maria Bonita - Login</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="img/icon.png" type="image/png">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
         integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
 </head>
@@ -38,7 +40,7 @@
                 <h2 class="title title-second">Criar uma conta</h2>
 
                 <br>
-                <form class="form" method="post" action="processa_cadastra_login.php">
+                <form class="form" id="formCadastro" method="post" action="processa_cadastra_login.php">
                     <label class="label-input" for="">
                         <i class="far fa-user icon-modify"></i>
                         <input type="text" name="nome" placeholder="Nome">
@@ -79,7 +81,7 @@
                 <br>
 
 
-                <form class="form" method="post" action="processa_login.php">
+                <form class="form" id="formLogin"  method="post" action="processa_login.php">
 
                     <label class="label-input" for="">
                         <i class="far fa-envelope icon-modify"></i>
@@ -97,6 +99,7 @@
             </div><!-- second column -->
         </div><!-- second-content -->
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="js/app.js"></script>
 </body>
 
