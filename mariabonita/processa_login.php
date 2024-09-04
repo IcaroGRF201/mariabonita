@@ -14,7 +14,10 @@ $linhas = mysqli_num_rows($resultado_consulta);
 if ($linhas == 1) {
     $registro = mysqli_fetch_row($resultado_consulta);
     $_SESSION["nome"] = $registro[2];
-    
+    $_SESSION["codigo"] = $registro[3];
+    $_SESSION['loggedin'] = true;
+
+
     // Sucesso no login
     $response2 = array('status' => 'success', 'message' => 'Login realizado com sucesso!');
 } else {
@@ -23,4 +26,3 @@ if ($linhas == 1) {
 }
 
 echo json_encode($response2);
-?>

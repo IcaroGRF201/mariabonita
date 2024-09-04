@@ -12,6 +12,10 @@ html {
     scroll-behavior: smooth;
 }
 
+body {
+    background-color: #fcf9f4;
+}
+
 
 /* custom scroll bar */
 ::-webkit-scrollbar {
@@ -139,9 +143,7 @@ section {
     transition: color 0.3s ease;
 }
 
-.navbar .menu li a:hover {
-    color: #3e733b;
-}
+
 
 .navbar.sticky .menu li a:hover {
     color: #fff;
@@ -285,7 +287,7 @@ section {
 
 .container {
     display: flex;
-    
+
     width: 100%;
     justify-content: center;
 }
@@ -297,7 +299,7 @@ h1 {
 
 .about {
     padding: 50px;
-    background-color: #111;
+    background-color: #fcf9f4;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -317,15 +319,15 @@ h1 {
     padding: 10px 20px;
     cursor: pointer;
     transition-duration: 0.4s;
-    
+
 }
 
 .calendario:hover {
     transform: scale(1.1);
-    
+
     background-color: transparent;
     border: 2px solid #3e733b;
-    color: #fff;
+    color: #3e733b;
 }
 
 .calendario.selected {
@@ -334,3 +336,303 @@ h1 {
     border: 2px solid #3e733b;
 }
 
+/* cardapio */
+
+.cardapio-container {
+    display: flex;
+    flex-wrap: wrap;
+    /* Permite que os itens "quebrem" para a próxima linha */
+    gap: 30px;
+    /* Espaçamento entre os cards */
+    justify-content: center;
+    /* Centraliza os itens na linha */
+    margin-top: 30px;
+}
+
+.cardapio-item {
+    background-color: #f9f9f9;
+    cursor: pointer;
+    margin-right: 50px;
+    border-radius: 10px;
+    width: 300px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.cardapio-item2 {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    width: 500px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cardapio-item2 input {
+    background-color: #f0f0f0;
+    margin: 10px 0 10px 0;
+    border-radius: 10px;
+    width: 100%;
+    padding: 15px;
+    border: none;
+    outline: none;
+}
+
+.topo {
+    display: flex;
+    justify-content: center;
+    margin: 30px 0 30px 0;
+}
+
+.direita {
+    margin-left: 40px;
+}
+
+.esquerda select {
+    height: 45px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3e733b;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+}
+
+.cardapio-item:hover {
+    transform: scale(1.05);
+}
+
+.cardapio-item img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.cardapio-item2 img {
+    width: 100%;
+    height: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.cardapio-title {
+    font-weight: bold;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.cardapio-description {
+    font-size: 14px;
+    color: #555;
+}
+
+/* butão alterar */
+
+.cardapio-altera {
+    margin-top: 10px;
+    height: 35px;
+    border-radius: 10px;
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    color: #111;
+}
+
+.cardapio-altera:hover {
+    border: 1px solid #3e733b;
+    color: #3e733b;
+}
+
+/* cadastrar */
+
+/* Esconde o input file padrão */
+input[type="file"] {
+    display: none;
+}
+
+/* Estiliza o label como um botão */
+.custom-file-label {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #3e733b;
+    color: white;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+#preview {
+    max-width: 100%;
+    height: auto;
+    display: none;
+    /* Esconde a imagem até que uma seja selecionada */
+}
+
+
+.custom-swal-popup {
+    font-family: 'Ubuntu', sans-serif;
+    background-color: #f7f7f7;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.custom-swal-title {
+    font-size: 24px;
+    font-weight: 400;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.custom-swal-text {
+    font-size: 18px;
+    color: #555;
+}
+
+.custom-swal-button {
+    border: 2px solid #3e733b;
+    color: #3e733b;
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    align-content: center;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: none;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+    display: flex;
+    background-color: #fcf9f4;
+    ;
+    margin: 0 auto;
+    padding: 30px;
+    height: 500px;
+    width: 70%;
+    border-radius: 25px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.cta-button {
+    background-color: #3e733b;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+    margin: auto 50px;
+    margin-top: 50px;
+    transition-duration: 0.4s;
+}
+
+.cta-button:hover {
+    transform: scale(1.1);
+
+}
+
+.right-content {
+    margin-left: 50px;
+    width: 100%;
+}
+
+form,
+p {
+    font-family: 'Ubuntu', sans-serif;
+    font-size: 14pt;
+    color: #111;
+}
+
+
+
+
+.acompanhamentos input[type='checkbox'] {
+    accent-color: #3e733b;
+    /* Cor do checkbox */
+    justify-content: center;
+    border-radius: 0px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    font-weight: 100;
+}
+
+.right-content h2 {
+    font-family: 'Ubuntu', sans-serif;
+    color: #3e733b;
+    text-align: center;
+    font-size: 30pt;
+    margin: 0 0 20px 0;
+}
+
+.left-content {
+    display: flex;
+}
+
+.left-content img {
+    border-radius: 20px;
+    height: 440px;
+    width: 500px;
+
+}
+
+.bebidas {
+    background-color: #111;
+
+}
+
+/*valida descrição*/
+
+.custom-alert {
+    position: relative;
+    background-color: #fff4e5;
+    border: 1px solid #ffa502;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    display: none;
+}
+
+.custom-alert::before {
+    content: " ";
+    position: absolute;
+    top: -10px;
+    left: 20px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent #ffa502 transparent;
+}
+
+.custom-alert-icon {
+    color: #ffa502;
+    margin-right: 5px;
+    font-weight: bold;
+}

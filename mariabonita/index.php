@@ -1,106 +1,214 @@
+<?php
+
+include($_SERVER['DOCUMENT_ROOT'] . '/mariabonita/valida_login.php');
+?>
+
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Maria Bonita - Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <title>Maria Bonita</title>
+    <link rel="stylesheet" href="css/home.css">
+    <link rel="shortcut icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <link rel="icon" href="img/icon.png" type="image/png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
-
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css"
-        integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/waypoints/4.0.1/jquery.waypoints.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Sharp:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 </head>
 
 <body>
-    <div class="video-background">
-        <video autoplay muted loop>
-            <source src="img/202004-916894674.mp4" type="video/mp4">
 
-        </video>
+    <div class="scroll-up-btn">
+        <i class="fas fa-angle-up"></i>
     </div>
-    
-    <div class="container">
-
-    <img src="img/logo.png">
-        
-        <div class="content first-content">
-            <div class="first-column">
-                <h2 class="title title-primary">Já possui cadastro?</h2>
-
-                <p class="description description-primary">Acesse o nosso site</p>
-
-                <button id="signin" class="btn btn-primary">Entrar</button>
-
-
+    <nav class="navbar">
+        <div class="max-width">
+            <div class="menu-btn">
+                <i class="fas fa-bars"></i>
             </div>
-            <div class="second-column">
-                <h2 class="title title-second">Criar uma conta</h2>
-
-                <br>
-                <form class="form" id="formCadastro" method="post" action="processa_cadastra_login.php">
-                    <label class="label-input" for="">
-                        <i class="far fa-user icon-modify"></i>
-                        <input type="text" name="nome" placeholder="Nome">
-                    </label>
-
-                    <label class="label-input" for="">
-                        <i class="far fa-user icon-modify"></i>
-                        <input type="text" name="usuario" placeholder="Usuario">
-                    </label>
-
-                    <label class="label-input" for="">
-                        <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" name="senha" placeholder="Senha">
-                    </label>
-
-
-                    <button class="btn btn-second">criar
-
-                    </button>
-
-
-
-
-                </form>
-
-            </div><!-- second column -->
-        </div><!-- first content -->
-        <div class="content second-content">
-            <div class="first-column">
-                <h2 class="title title-primary">Não possui cadastro?</h2>
-                <p class="description description-primary">Crie uma conta</p>
-                <p class="description description-primary">e acesse o nosso site</p>
-                <button id="signup" class="btn btn-primary">criar</button>
+            <div class="logo">
+                <a href="../mariabonita/home.php">
+                    <img src="img/logo.png">
+                </a>
             </div>
-            <div class="second-column">
-                <h2 class="title title-second">Acesse o nosso site</h2>
+            <div class="menu">
+                <?php
 
-                <br>
+                // Check if the session variable "funcao" is set
+
+                if ($_SESSION["nome"] == "Administrador") {
+                ?>
+                    <ul class="menu">
+                        <li><a href="#home" class="menu-btn">Home</a></li>
+                    </ul>
+                    <ul class="adm">
+                        <li><a href="admin.php" class="menu-btn">Administração</a></li>
+                    </ul>
+                    <ul class="menu">
+                        <li><a href="#about" class="menu-btn">Sobre</a></li>
+                        <li><a href="#services" class="menu-btn">Serviços</a></li>
+                        <li><a href="#time" class="menu-btn">Horários</a></li>
+                        <li><a href="../mariabonita/cardapio/cardapio.php" class="menu-btn">Cardápio</a></li>
+                        <li><a href="../Carrinho/index.html" class="menu-btn"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+                        <li><a href="../mariabonita/logout.php" class="menu-btn">Sair</a></li>
+                    </ul>
+                <?php
+                } else {
+                ?>
+                    <ul class="menu">
+                        <li><a href="../mariabonita/index.php#home" class="menu-btn">Home</a></li>
+                        <li><a href="../mariabonita/index.php#about" class="menu-btn">Sobre</a></li>
+                        <li><a href="../mariabonita/index.php#services" class="menu-btn">Serviços</a></li>
+                        <li><a href="../mariabonita/index.php#time" class="menu-btn">Horários</a></li>
+                        <li><a href="../mariabonita/cardapio/cardapio.php" class="menu-btn">Cardápio</a></li>
+                        <li><a href="../Carrinho/index.html" class="menu-btn"><i class="fas fa-shopping-cart"></i> Carrinho</a></li>
+                        <li><a href="../mariabonita/login.php" class="menu-btn">Login</a></li>
+                        <li><a href="../mariabonita/logout.php" class="menu-btn">Sair</a></li>
+                    </ul>
+
+                <?php
+                }
+
+                ?>
+            </div>
+            <div class="menu-cart">
+                <a href="../Carrinho/index.html"><i class="fas fa-shopping-cart"></i><span id="cont-cart"></span></a>
+            </div>
+        </div>
+    </nav>
+    <?php
+                if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true){
+    ?>
+    <!-- home section start -->
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
 
 
-                <form class="form" id="formLogin"  method="post" action="processa_login.php">
 
-                    <label class="label-input" for="">
-                        <i class="far fa-envelope icon-modify"></i>
-                        <input type="text" name="usuario" placeholder="Usuario">
-                    </label>
+                <div class="text-2"><img src="img/cacto.png">Maria Bonita</div>
 
-                    <label class="label-input" for="">
-                        <i class="fas fa-lock icon-modify"></i>
-                        <input type="password" name="senha" placeholder="Senha">
-                    </label>
+                <br><br>
 
-                    
-                    <button class="btn btn-second">entrar</button>
-                </form>
-            </div><!-- second column -->
-        </div><!-- second-content -->
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="js/app.js"></script>
+                <div class="text-3">Bem vindo,<?php include "nome.php" ?></div>
+
+                <a href="../mariabonita/cardapio/cardapio.php">Ver Cardápio</a>
+            </div>
+        </div>
+        <div class="arrow">
+            <a href="#about"><span class="material-symbols-sharp">south</span></a>
+        </div>
+    </section>
+    <?php
+                } else { 
+    ?>
+    <section class="home" id="home">
+        <div class="max-width">
+            <div class="home-content">
+
+
+
+                <div class="text-2"><img src="img/cacto.png">Maria Bonita</div>
+
+                <br><br>
+
+                <div class="text-3">Bem vindo</div>
+
+                <a href="../Cardapio/index.html">Ver Cardápio</a>
+            </div>
+        </div>
+        <div class="arrow">
+            <a href="#about"><span class="material-symbols-sharp">south</span></a>
+        </div>
+    </section>
+    <?php
+                }
+    ?>
+
+    <!-- about section start -->
+    <section class="about" id="about">
+        <div class="max-width">
+            <h2 class="title">Sobre nós</h2>
+            <div class="about-content">
+                <div class="column left">
+                    <img src="../mariabonita/img/wallpaper.png" alt="">
+                </div>
+                <div class="column right">
+                    <div class="text">Olá nos somos a Paladare</div>
+                    <p>Aqui no Paladare nós oferecemos os melhores lanches artesanais da região, com excelente qualidade e te convidamos para experimentar.
+                        Nós queremos preparar os melhores lanches para os nosso clientes, trazendo alta qualidade e sabor, oferecendo o melhor da casa.
+                        Delicie-se e aproveite. Pegue uma bebida e acima de tudo, relaxe!
+                        Agradecemos por sua preferência.
+                    </p>
+                    <a href="#">História</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- services section start -->
+    <section class="services" id="services">
+        <div class="max-width">
+            <h2 class="title">Nossos Serviços</h2>
+            <h4 class="subtitle">Pedir um delivery fica fácil com apenas 3 passos</h4>
+            <div class="serv-content">
+                <div class="card">
+                    <div class="box">
+                        <i class="fab fa-whatsapp"></i>
+                        <div class="text">Faça seu pedido</div>
+                        <p>É muito simples, vá até o cardápio, escolha seu pedido e nos envie a mensagem por whatsapp.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <i class="fas fa-truck"></i>
+                        <div class="text">Nós entregamos</div>
+                        <p>Agora é só esperar a entrega chegar e pagar, garantimos uma entrega rápida de 40 minutos.</p>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="box">
+                        <i class="fas fa-hamburger"></i>
+                        <div class="text">Aproveite seu lanche</div>
+                        <p>O ultimo e melhor passo é apreciar o seu lanche no conforto do lar. <br> Bon appétit!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- skills section start -->
+    <section class="skills" id="time">
+        <div class="max-width">
+            <h2 class="title">Horários</h2>
+            <div class="skills-content">
+                <div class="column left">
+                    <div class="text">Horários de Atendimento.</div>
+                    <p>Nós da Paladare atendemos durante a noite, somos uma ótima opção para quem quer um jantar surpreendente ou até mesmo um delicioso lanche durante a noite.<br>Você pode optar pela nossa loja física ou pelo delivery, garantimos uma entrega rápida entre 40 à 50 minutos.<br>Nossos horários durante a semana são das 18:30 às 22:30. Já nos finais de semana são das 18:30 às 23:30</p>
+                    <a href="../Cardapio/index.html">Ver Cardápio</a>
+                </div>
+                <div class="column right">
+                    <img src="../images/HorarioDeAtendimento3.png" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- footer section start -->
+    <footer>
+        <span>Criado por <a href="https://github.com/HenriqueEstanislau">Henrique Estanislau</a> | <span class="far fa-copyright"></span> 2021 Todos os direitos reservados.</span>
+    </footer>
+
+    <script src="js/home.js"></script>
 </body>
 
 </html>

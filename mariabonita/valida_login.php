@@ -1,17 +1,7 @@
 <?php
-	if ( isset($_SESSION["nome"]) ) {
-		
-		echo $_SESSION["nome"];
-		
-	}
-	else { 
-	
-		echo "<script> 
-				alert ('Você não está logado!!!') 
-			  </script>";
-			
-		echo "<script> 
-				location.href = ('index.php') 
-			  </script>";
-	}
+session_start();
+if (!isset($_SESSION['nome'])) {
+    header("Location: /mariabonita/login.php");
+    exit();
+}
 ?>

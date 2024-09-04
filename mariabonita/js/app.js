@@ -100,7 +100,7 @@ document.querySelector('#formLogin').addEventListener('submit', async function(e
                     confirmButton: 'custom-swal-button'
                 }
             });
-            window.location.href = 'home.php';
+            window.location.href = 'index.php';
         } else {
             await Swal.fire({
                 icon: 'error',
@@ -131,6 +131,8 @@ document.querySelector('#formLogin').addEventListener('submit', async function(e
         });
     }
 });
+
+
 
 
 
